@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>Admin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;}
+    }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <h2>TBS</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="/admindashboard">Admin</a></li>
+        <li><a href="/users"><i class="fa fa-users" aria-hidden="true"></i> Users</a></li>
+        <li><a href="/turfs"><i class='far fa-futbol'></i> Turfs</a></li>
+        <li><a href="/bookings"><i class="fa fa-book" aria-hidden="true"></i> Bookings</a></li>
+        <li><a href="/report"><i class="fa fa-file" aria-hidden="true"></i> Reports</a></li>
+        <li><a href="/feedback"><i class="fa-solid fa-comments-o"></i> Feedbacks</a></li>
+        <li><a href="/view_contacts"><i class="fa fa-address-book" aria-hidden="true"></i> Contacts</a></li>
+        <li><a href="/logout"><i class="fa-solid fa-sign-out"></i> Logout</a></li>
+      </ul><br>
+    </div>
+    <br>
+
+    <div class="col-sm-9">
+      <div class="well">
+        <h4>Turf Booking System</h4>
+        <p>Welcome Admin: {{request.user}}</p>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Users</h4>
+            <p><img src="{% static 'users.png'%}" style="width:50px; height:50px;"> {{users}}</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Turfs</h4>
+            <p><img src="{% static 'turf.png'%}" style="width:50px; height:50px;"> {{turfs}}</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Bookings</h4>
+            <p><img src="{% static 'bookings.png'%}" style="width:50px; height:50px;"> {{bookings}}</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Feedback</h4>
+            <p><img src="{% static 'feedbacks.png'%}" style="width:50px; height:50px;"> {{feedbacks}}</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Contacts</h4>
+            <p><img src="{% static 'contact.png'%}" style="width:50px; height:50px;"> {{contacts}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>Admin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;}
+    }
+  </style>
+</head>
+<body>
+{% block body %}
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <h2>TBS</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="/admindashboard">Admin</a></li>
+        <li><a href="/users"><i class="fa fa-users" aria-hidden="true"></i> Users</a></li>
+        <li><a href="/turfs"><i class='far fa-futbol'></i> Turfs</a></li>
+        <li><a href="/bookings"><i class="fa fa-book" aria-hidden="true"></i> Bookings</a></li>
+        <li><a href="/report"><i class="fa fa-file" aria-hidden="true"></i> Reports</a></li>
+        <li><a href="/feedback"><i class="fa-solid fa-comments-o"></i> Feedbacks</a></li>
+        <li><a href="/view_contacts"><i class="fa fa-address-book" aria-hidden="true"></i> Contacts</a></li>
+        <li><a href="/logout"><i class="fa-solid fa-sign-out"></i> Logout</a></li>
+      </ul><br>
+    </div>
+    <br>
+
+    <div class="col-sm-9">
+      <div class="well">
+        <h4>Turf Booking System</h4>
+        <p>Welcome Admin: {{request.user}}</p>
+      </div>
+      <div class="row">
+
+<div class="container profile">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="profile-img">
+        <img src="{{turf.image.url}}" alt="" width="310px" height="270px">
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="profile-tab">
+        <div class="tab-pane">
+          <div class="row">
+            <div class="col-md-3">
+              <label><b>Turf#:</b></label>
+            </div>
+            <div class="col-md-6">
+              <p>{{turf.id}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label><b>Turf Name:</b></label>
+            </div>
+            <div class="col-md-6">
+              <p>{{turf.turf_name}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label><b>Phone:</b></label>
+            </div>
+            <div class="col-md-6">
+              <p>{{turf.phone}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label><b>Address:</b></label>
+            </div>
+            <div class="col-md-6">
+              <p>{{turf.address}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label><b>Details:</b></label>
+            </div>
+            <div class="col-md-6">
+              <p>{{turf.description}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label><b>Charges:</b></label>
+            </div>
+            <div class="col-md-6">
+              <p>{{turf.charges}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      </div>
+    </div>
+</div>
+  </div>
+</div>
+  {% endblock %}
+
+</body>
+</html>

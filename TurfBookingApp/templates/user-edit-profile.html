@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>User</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;}
+    }
+  </style>
+</head>
+<body>
+{% block body%}
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <h2>TBS</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="/userdashboard">User</a></li>
+        <li><a href="/user_profile"><i class="fa fa-users" aria-hidden="true"></i> Profile</a></li>
+        <li><a href="/book_turf"><i class='far fa-futbol'></i> Book Turf</a></li>
+        <li><a href="/mybookings"><i class="fa fa-book" aria-hidden="true"></i> My Bookings</a></li>
+        <li><a href="/post_feedback"><i class="fa-solid fa-comments-o"></i> Feedback</a></li>
+        <li><a href="/logout"><i class="fa-solid fa-sign-out"></i> Logout</a></li>
+      </ul><br>
+    </div>
+    <br>
+
+    <div class="col-sm-9">
+      <div class="well">
+        <h4>Turf Booking System</h4>
+        <p>Welcome User: {{request.user}}</p>
+      </div>
+      <div class="row">
+
+<div class="container">
+    <form method="POST"> {% csrf_token %}
+        <div class="row mt-4">
+    <div class="form-group col-md-6">
+        <label><i style="font-weight: bold;">First Name</i></label>
+        <input type="text" class="form-control" name="first_name" value="{{user.first_name}}" required>
+    </div>
+    <div class="form-group col-md-6">
+        <label><i style="font-weight: bold;">Last Name</i></label>
+        <input type="text" class="form-control" name="last_name" value="{{user.last_name}}" required>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="form-group col-md-6">
+        <label><i style="font-weight: bold;">Email</i></label>
+        <input type="email" class="form-control" name="email" value="{{user.email}}" required>
+    </div>
+    <div class="form-group col-md-6">
+        <label><i style="font-weight: bold;">Mobile Number</i></label>
+        <input type="number" class="form-control" name="phone" value="{{user.customer.phone}}" required pattern="^[6789]\d{9}$">
+    </div>
+</div>
+
+    <button type="submit" class="btn btn-success mt-5">Update User Profile</button>
+</form>
+</div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+</body>
+</html>
+
+{% block js %}
+<script>
+    {% if alert %}
+    alert("User Profile Updated Successfully.")
+    document.location = "/user_profile"
+    {% endif %}
+    {% if wrongphone %}
+    alert("Invalid phone.")
+    document.location = "/user_edit_profile"
+    {% endif %}
+</script>
+{% endblock %}
