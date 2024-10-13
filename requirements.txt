@@ -1,0 +1,35 @@
+# Core Django framework
+Django==4.2.7
+
+# MySQL database adapter
+mysqlclient==2.1.1
+
+# WSGI HTTP Server for UNIX
+gunicorn==21.2.0
+
+# Django REST framework for building APIs (if needed)
+djangorestframework==3.14.0
+
+# Environment variable management
+python-dotenv==1.0.0
+
+# CORS headers for Django (if needed)
+django-cors-headers==4.3.0
+
+# Whitenoise for serving static files (useful in production)
+whitenoise==6.6.0
+
+# Django debug toolbar for development (optional)
+django-debug-toolbar==4.2.0
+
+# Pillow for image processing (if your project handles images)
+Pillow==10.1.0
+
+# Celery for background task processing (if needed)
+celery==5.3.4
+
+# Redis as a backend for Celery and caching (if needed)
+redis==5.0.1
+
+# Django Redis for caching (if needed)
+django-redis==5.4.0
